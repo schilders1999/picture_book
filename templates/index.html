@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    <title>Once Upon a Time</title>
+  </head>
+  <body>
+    <h1>Once Upon a Time: A Picture Book Generator</h1>
+    <p1>Below is the beginning of a wonderful story. Fill in the blanks however you desire and submit to generate a unique picture book!</p1>
+    <form method="POST" action="/">
+      <label for="box1">Once upon a time, there was a </label>
+      <input type="text" id="box1" name="box1" />
+      <input type="submit" value="Submit">
+         
+      
+    </form>
+  </body>
+</html>
