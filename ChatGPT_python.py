@@ -1,13 +1,13 @@
 import openai
 
 
-openai.api_key = "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" 
+openai.api_key = "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" 
 
 def generate_response(prompt):
     response = openai.Completion.create(
         engine="text-davinci-002",
         prompt="Write me a story for: " + prompt + "Make this story fitting for children and incorporate a good lesson in the end of the story.",
-        max_tokens=500,
+        max_tokens=1,
         n=1,
         stop=None,
 

@@ -12,7 +12,8 @@ class Dalle:
         
         def __init__(self, img_sz="512", n_images=1):
                 self._api_keys_location = "./config"
-                self._generated_image_location = "./output/"+dirName
+                path = os.path.join(os.getcwd(), 'static', 'images', dirName.replace(" ", ""))
+                self._generated_image_location = path
                 self._page_contents = pageContents
                 self._stream = True
                 self._img_sz = img_sz
@@ -55,7 +56,7 @@ class Dalle:
                 del config
 
         def read_from_command_line(self, pageText):
-                self._input_prompt = "Draw a picture for the sentence: " + pageText + ". Also, keep the following prompt in mind: " + dirName + ". Draw in a picture book style."
+                self._input_prompt = "Draw a picture for the sentence: " + pageText + ". Also, keep the following prompt in mind: " + dirName + ". Draw in a picture book style without including any generated text."
                 
 
         def generate_image_from_prompt(self):
@@ -96,14 +97,14 @@ def begin(arrayValue, input_string):
         global dirName
         dirName = input_string
         global counter
-        counter = 0
+        counter = 1
         global pageContents
 
         for x in arrayValue:
-                counter = counter +1
                 pageContents = arrayValue
                 commandLineDalle = Dalle()
                 commandLineDalle.generate_and_save_images(x)
                 commandLineDalle.open_urls_in_browser()
+                counter = counter +1
 
         

@@ -1,0 +1,24 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Book</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+
+  </head>
+  <body>
+    <h1>{{ input_string }}</h1>
+    {% for sentence in sentences %}
+      <br>
+      <div>{{ sentence }}</div>
+      <br>
+      <p>{{ img_path }}</p>
+      <img src="{{ img_path }}"  height="500" width="500">
+
+      <hr>
+    {% endfor %}
+
+  </body>
+</html>
+  

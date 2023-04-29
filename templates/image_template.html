@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Gallery</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+
+</head>
+<body>
+	<img src="{{ image }}" alt="Image">
+	<div class="navigation">
+		{% if prev is not none %}
+			<a href="{{ url_for('gallery', input_string=input_string, image_index=prev) }}"><button>Previous</button></a>
+		{% endif %}
+		{% if next is not none %}
+			<a href="{{ url_for('gallery', input_string=input_string, image_index=next) }}"><button>Next</button></a>
+		{% endif %}
+	</div>
+</body>
+</html>
