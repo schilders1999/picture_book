@@ -56,7 +56,7 @@ class Dalle:
                 del config
 
         def read_from_command_line(self, pageText):
-                self._input_prompt = "Draw a picture for the sentence: " + pageText + ". Also, keep the following prompt in mind: " + dirName + ". Draw in a picture book style without including any generated text."
+                self._input_prompt = "Draw a picture for: " + pageText + ". Also, keep remember that this is a picture for the prompt 'Once upon a time there was a  " + dirName + ". Draw in a cartoonish style."
                 
 
         def generate_image_from_prompt(self):
@@ -70,11 +70,11 @@ class Dalle:
                 for i in range(self._n_images):
                         self._image_urls.append(self._response['data'][i]['url'])
 
-        def open_urls_in_browser(self, image_urls=None):
-                if image_urls is None:
-                        image_urls = self._image_urls
-                for url in image_urls:
-                        webbrowser.open(url)
+        # def open_urls_in_browser(self, image_urls=None):
+        #         if image_urls is None:
+        #                 image_urls = self._image_urls
+        #         for url in image_urls:
+        #                 webbrowser.open(url)
 
         def save_urls_as_image(self):
                 if not os.path.isdir(self._generated_image_location):
@@ -104,7 +104,6 @@ def begin(arrayValue, input_string):
                 pageContents = arrayValue
                 commandLineDalle = Dalle()
                 commandLineDalle.generate_and_save_images(x)
-                commandLineDalle.open_urls_in_browser()
                 counter = counter +1
 
         

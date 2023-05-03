@@ -1,81 +1,103 @@
 
 body {
     background-color: lightcyan;
+    zoom: 180%;
 }
 
 h1 {
-    border: 2px #000000 dashed;
-    background-color: lightskyblue;
+    border: 2px #000000 solid;
+    background-color: skyblue;
     color: black;
     text-align: center;
     padding: 10px;
     font-size: 50px;
+    margin-block-end: 8px;
+}
+p1 {
+  color: black;
+  display: block;
+  background-color: skyblue;
+  font-size:20px;
+  border:2px black solid;
+  text-align: center;
+  padding:4px;
+  margin-bottom: 30px;
+}
+p3 {
+  text-align: center;
+  color: black;
+  display: block;
+  background-color: skyblue;
+  font-size:20px;
+  border:2px black solid;
+  padding:10px;
+  margin-bottom: 20px;
+  
+}
+p2 {
+    color: black;
+    display: block;
+    background-color: skyblue;
+    text-align: center;
+    border : 2px black solid;
+    padding:10px;
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-p1 {
-    color: black;
-    font-size: 20px;
-}
+
 
 form {
     color: black;
     font-size: 20px;
 }
-
-/* Style for the gallery-container */
-.gallery-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #F5F5F5;
-  }
-  
-  /* Style for the image-container */
-  .image-container {
-    max-width: 100%;
-    max-height: 100%;
-  }
-  
-  /* Style for the button-container */
-  .button-container {
-    margin-top: 20px;
-  }
   
   /* Style for the button */
   button {
+    display: block;
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
+    
   }
   
-  /* Style for the button:hover */
-  button:hover {
-    background-color: #3e8e41;
-  }
-  
+
   img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    max-width: 90%;
-    height: auto;
     margin-top: 30px;
     margin-bottom: 30px;
+
   }
 
-  .navigation {
+  #imgid {
+    border: black solid 2px;
+    border-radius: 2px;
+    width:35%;
+    height:auto; 
+    margin-top:30px;
+    margin-bottom:10px;
+  }
+   #button-left {
+    float: left;
+   }
+
+   #button-right {
+    float: right;
+   }
+
+  /* .navigation {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
     margin-bottom: 30px;
-  }
+  } */
 
-  .navigation button {
+  /* .navigation button {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -88,13 +110,13 @@ form {
     cursor: pointer;
     border-radius: 5px;
     outline: none;
-  }
+  } */
 
-  .navigation button:hover {
+  /* .navigation button:hover {
     background-color: #3e8e41;
   }
 
   .navigation button:active {
     background-color: #3e8e41;
     transform: translateY(2px);
-  }
+  } */

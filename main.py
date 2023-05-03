@@ -25,6 +25,7 @@ def home():
 def submit():
     if request.method =='POST':
         input_string = request.form['input']
+        input_string = input_string.replace("\'","")
         arrayvalue = start(input_string)
         return pages(input_string, length = len(arrayvalue)) 
     

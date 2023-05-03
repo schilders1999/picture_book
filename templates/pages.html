@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     
-    <!-- <script type="text/javascript" src="main.py"></script> -->
     <title>Photo Viewer</title>
   </head>
   <body >
+    <a  href="/"><button class="button">Return Home</button></a>
     <div>
       
       <img id="imgid" name="imgid" width="200" height="200" src=""/>
     </div>
     <div>
-      <p1 id="sentence"></p1>
+      <p2 id="sentence"></p2>
     </div>
     <div>
       <button id="button-left" onClick="goBack()">Previous Page</button>
@@ -31,13 +31,16 @@
           page = (page - 1)%bookLength;
           updatePage(page);
         }
+        
       }
       function goForward(){
-        if(page<bookLength-1)
-        page = (page + 1)%bookLength;
-        updatePage(page);
+        if(page<bookLength-1){
+          page = (page + 1)%bookLength;
+          updatePage(page);
+        }
       }
 
+      
 
 
       //Code for image handling
@@ -72,7 +75,7 @@
             outputText = outputText.replace('\r\n\r\n','\r\n');
             sentences = outputText.split("\r\n");
             sentence = sentences[page];
-            document.getElementById("sentence").innerHTML = sentence;
+            document.getElementById("sentence").innerHTML = sentence;    
 
           })
           .catch(error => {
@@ -84,7 +87,7 @@
           finalSrc = newSrc+page+path4;
           myImage.src = finalSrc;
       }
-        
+
       updatePage(page, filePath);
 
 
