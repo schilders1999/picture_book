@@ -97,7 +97,7 @@ def begin(arrayValue, input_string):
         global dirName
         dirName = input_string
         global counter
-        counter = 1
+        counter = 0
         global pageContents
 
         for x in arrayValue:

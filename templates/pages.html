@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- <script type="text/javascript" src="main.py"></script> -->
+    <title>Photo Viewer</title>
+  </head>
+  <body >
+    <div>
+      
+      <img id="imgid" name="imgid" width="200" height="200" src=""/>
+    </div>
+    <div>
+      <p1 id="sentence"></p1>
+    </div>
+    <div>
+      <button id="button-left" onClick="goBack()">Previous Page</button>
+      <button id="button-right" onClick="goForward()">Next Page</button>
+    </div>
+
+    <script>
+      
+      //Code for incrementing page
+      var page = 0;
+      var bookLength = '{{ length }}';
+
+      function goBack(){
+        if(page>0){
+          page = (page - 1)%bookLength;
+          updatePage(page);
+        }
+      }
+      function goForward(){
+        if(page<bookLength-1)
+        page = (page + 1)%bookLength;
+        updatePage(page);
+      }
+
+
+
+      //Code for image handling
+      var inputString = '{{ input_string }}';
+      var path0 = '/static/images/';
+      var path2 = '/';
+      var path4 = '.png';
+      var picPath = path0;
+      var myImage = document.getElementById("imgid");
+      var folder = path0+inputString;
+      var newSrc = path0+inputString+path2;
+      var finalSrc = newSrc+page+path4;
+      myImage.src = finalSrc;
+
+
+      //Code for Sentences
+      var filePath='/static/textFiles/'+inputString+'.txt';
+      var outputText = "Test";
+      var sentences = [];
+      var sentence = "Test";
+      
+      function updatePage(page, filePath){
+        fetch(filePath)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.text();
+          })
+          .then(text => {
+            outputText = text;
+            outputText = outputText.replace('\r\n\r\n','\r\n');
+            sentences = outputText.split("\r\n");
+            sentence = sentences[page];
+            document.getElementById("sentence").innerHTML = sentence;
+
+          })
+          .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+          });
+          sentence = sentences[page];
+          document.getElementById("sentence").innerHTML = sentence;
+          myImage = document.getElementById("imgid");
+          finalSrc = newSrc+page+path4;
+          myImage.src = finalSrc;
+      }
+        
+      updatePage(page, filePath);
+
+
+
+
+        
+    </script>
+  </body>
+</html>
